@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.example.lowesmovies.models.Results" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_width="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_cover"
+                imageUrlWithId="@{movie.component2().component1()}"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:contentDescription="image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/teal_200" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:maxLines="2"
+                android:text="@{movie.component1()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/iv_cover"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="title"
+                android:paddingLeft="5dp" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:lines="3"
+                android:text="@{movie.component3()}"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_cover"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                tools:text="discription"
+                android:paddingLeft="5dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
